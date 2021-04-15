@@ -1,0 +1,2 @@
+1. Whenever you put a path the browser includes it on tha path message displayed on the pycharm terminal.
+2.
