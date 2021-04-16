@@ -4,7 +4,7 @@ import pathlib
 
 IP = "127.0.0.1"
 PORT = 8080
-FOLDER = './html/' #CHECK!!!
+FOLDER = './html/'
 
 def read_html_file(filename):
     content = pathlib.Path(filename).read_text()
@@ -25,6 +25,8 @@ def process_client(s):
     print("Request line: ", end="")
     print(req_line)
 
+    body = """ 
+         """
 
     status_line = "HTTP/1.1 200 OK\n"
 
