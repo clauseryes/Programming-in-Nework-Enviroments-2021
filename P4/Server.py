@@ -1,5 +1,7 @@
 import socket
 import pathlib
+import termcolor
+from urllib.parse import urlparse, parse_qs
 
 
 IP = "127.0.0.1"
@@ -20,17 +22,19 @@ def process_client(s):
     lines = req.split('\n')
 
     req_line = lines[0]
-    path_name = req_line.split(' ')[1]
+    request = req_line.split(' ')[1]
+    o = urlparse(request)
+    path_name = o.path
+    arguments = parse_qs(o.query)
 
-    print("Request line: ", end="")
-    print(req_line)
+    print("Resource requested: ", path_name)
+    print("Parameters: ", arguments)
 
-    body = """ 
-         """
+    termcolor.cprint(req_line), 'green'
 
     status_line = "HTTP/1.1 200 OK\n"
 
-    header = "Content-Type: text/plain\n"
+    header = "Content-Type: text/html\n"
 
     if path_name == "/":
         body = read_html_file(FOLDER + 'index.html')
@@ -40,6 +44,8 @@ def process_client(s):
             body = read_html_file(FOLDER + path_name.split('/')[-1] + '.html')
         except FileNotFoundError:
             body = read_html_file(FOLDER + "error.html")
+    else:
+        body = read_html_file(FOLDER + "error.html")
 
     header += f"Content-Length: {len(body)}\n"
 
