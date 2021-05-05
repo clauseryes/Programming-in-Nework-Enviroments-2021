@@ -43,6 +43,21 @@ def gene(seq_name):
     contents = read_template_html_file('./html/gene.html').render(context=context)
     return contents
 
+def operation(sequence, operation_name):
+    if operation_name == "Info":
+        result = info(sequence)
+    elif operation_name == "Comp":
+        result = comp(sequence)
+    elif operation_name == "Rev":
+        result = rev(sequence)
+    context = {
+        'sequence': sequence,
+        'operation': operation_name,
+        'result': result
+    }
+    contents = read_template_html_file('./html/operation.html').render(context=context)
+    return contents
+
 
 
 
