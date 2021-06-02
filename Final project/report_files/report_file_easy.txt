@@ -1,0 +1,461 @@
+Test report easy level
+====================
+
+---> listSpecies endpoint
+
+* TEST 1:
+
+* Input:
+
+http://127.0.0.1:8080/listSpecies?limit=4
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style="background-color: lightblue;">
+        The total number of species in the ensembl is : 310<br>
+        The limit you have selected is is : 4<br>
+        The names of the species are: <br>
+
+        <ul><li type="disc">little spotted kiwi</li></ul>
+
+        <ul><li type="disc">Indian glassy fish</li></ul>
+
+        <ul><li type="disc">blue tit</li></ul>
+
+        <ul><li type="disc">narwhal</li></ul>
+
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 2:
+
+* Input:
+
+http://127.0.0.1:8080/listSpecies?limit=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style="background-color: lightblue;">
+        The total number of species in the ensembl is : 310<br>
+        The limit you have selected is is : 310<br>
+        The names of the species are: <br>
+
+        <ul><li type="disc">little spotted kiwi</li></ul>
+
+        <ul><li type="disc">Indian glassy fish</li></ul>
+
+        <ul><li type="disc">blue tit</li></ul>
+
+        <ul><li type="disc">narwhal</li></ul>
+
+        .....................................
+
+        <ul><li type="disc">Komodo dragon</li></ul>
+
+        <ul><li type="disc">greater amberjack</li></ul>
+
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 3:
+
+* Input:
+
+http://127.0.0.1:8080/listSpecies?limit=1023
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 4:
+
+* Input:
+
+http://127.0.0.1:8080/listSpecies?limit=tutut
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+---> karyotype endpoint
+
+* TEST 1:
+
+* Input:
+
+http://127.0.0.1:8080/karyotype?specie=sheep
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style="background-color: lightblue;">
+        <p>The names of the chromosomes are : <br>
+
+        1<br>
+
+        2<br>
+
+        3<br>
+
+        4<br>
+
+        5<br>
+
+        6<br>
+
+        7<br>
+
+        8<br>
+
+        9<br>
+
+        10<br>
+
+        11<br>
+
+        12<br>
+
+        13<br>
+
+        14<br>
+
+        15<br>
+
+        16<br>
+
+        17<br>
+
+        18<br>
+
+        19<br>
+
+        20<br>
+
+        21<br>
+
+        22<br>
+
+        23<br>
+
+        24<br>
+
+        25<br>
+
+        26<br>
+
+        X<br>
+
+        MT<br>
+             </p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 2:
+
+* Input:
+
+http://127.0.0.1:8080/karyotype?specie=homo+sapiens
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style="background-color: lightblue;">
+        <p>The names of the chromosomes are : <br>
+
+        1<br>
+
+        2<br>
+
+        3<br>
+
+        4<br>
+
+        5<br>
+
+        6<br>
+
+        7<br>
+
+        8<br>
+
+        9<br>
+
+        10<br>
+
+        11<br>
+
+        12<br>
+
+        13<br>
+
+        14<br>
+
+        15<br>
+
+        16<br>
+
+        17<br>
+
+        18<br>
+
+        19<br>
+
+        20<br>
+
+        21<br>
+
+        22<br>
+
+        X<br>
+
+        Y<br>
+
+        MT<br>
+             </p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 3:
+
+* Input:
+
+http://127.0.0.1:8080/karyotype?specie=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+* TEST 4:
+
+* Input:
+
+http://127.0.0.1:8080/karyotype?specie=vegetable
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+---> chromosomeLength endpoint
+
+* TEST 1:
+
+* Input:
+
+http://127.0.0.1:8080/chromosomeLength?specie=horse&chromosome=6
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style="background-color: lightblue;">
+        <p>The length of the chromosome is : 87230776 </p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 2:
+
+* Input:
+
+http://127.0.0.1:8080/chromosomeLength?specie=homo+sapiens&chromosome=X
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style="background-color: lightblue;">
+        <p>The length of the chromosome is : 156040895 </p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 3:
+
+* Input:
+
+http://127.0.0.1:8080/chromosomeLength?specie=vegetable&chromosome=X
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 4:
+
+* Input:
+
+http://127.0.0.1:8080/chromosomeLength?specie=homo+sapiens&chromosome=60
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+* TEST 5:
+
+* Input:
+
+http://127.0.0.1:8080/chromosomeLength?specie=&chromosome=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Bases server</title>
+      </head>
+      <body style="background-color: red;">
+        <h1>ERROR</h1>
+        <p>Resource not available</p>
+        <a href="/">Main page</a>
+      </body>
+    </html>
+
+
+---> main endpoint
+
+* TEST 1:
+
+* Input:
+
+http://127.0.0.1:8080/
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Genome server</title>
+      </head>
+      <body style=" background-color: lightyellow;">
+        <h1>Browsing Human and Vertebrates genome</h1>
+        <p>BASIC Level Services</p>
+        <form action="listSpecies" method="get">
+          1) List of species in the genome database <br>Limit: <input type="text" name="limit">
+          <br>
+          <input type="submit" value="Send">
+        </form>
+        <form action="karyotype" method="get">
+          2) Information about the karyotype <br>Select the species: <input type="text" name="specie">
+          <br>
+          <input type="submit" value="Send">
+        </form>
+        <form action="chromosomeLength" method="get">
+          3) Chromosome length <br>Select the species: <input type="text" name="specie"><br>Select a chromosome: <input type="text" name="chromosome">
+          <br>
+          <input type="submit" value="Send">
+        </form>
+        </form>
+      </body>
+    </html>
